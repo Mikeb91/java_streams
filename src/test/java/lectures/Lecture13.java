@@ -12,17 +12,17 @@ public class Lecture13 {
             .stream()
             .filter(car -> {
               System.out.println("filter car " + car);
-              return car.getPrice() < 10000;
+              return car.getPrice() < 10000; //This intermediate opertions, wont occure until the final back to concrete operation takes places.
             })
             .map(car -> {
-              System.out.println("mapping car " + car);
-              return car.getPrice();
+              System.out.println("mapping car " + car);//This intermediate opertions, wont occure until the final back to concrete operation takes places.
+              return car.getPrice(); //Lazy operations - Does not occure until terminal operations occure
             })
             .map(price -> {
-              System.out.println("mapping price " + price);
+              System.out.println("mapping price " + price);//This intermediate opertions, wont occure until the final back to concrete operation takes places.
               return price + (price * .14);
             })
-            .collect(Collectors.toList())
+            .collect(Collectors.toList()) //Terminal operations that takes all back to concrete
     );
   }
 }
